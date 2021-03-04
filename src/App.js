@@ -22,7 +22,7 @@ import "./styles/effects.css";
 import "./styles/menubuttons.css";
 import "./styles/sprites.css";
 import "./styles/textbox.css";
-import "./styles/titlescreen.scss";
+import "./styles/titlescreen.css";
 import "./styles/transitions.css";
 
 const INITIAL_STATE = {
@@ -242,6 +242,13 @@ class App extends Component {
       });
       this.textSkipper = setInterval(this.setNextFrame.bind(this), intervalTime);
     }
+  }
+
+  stopSkip() {
+    clearInterval(this.textSkipper);
+    this.setState({
+      isSkipping: false
+    });
   }
 
   beginStory() {
