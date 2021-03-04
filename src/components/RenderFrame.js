@@ -23,7 +23,6 @@ function RenderFrame(props) {
       return 250;
     }
   }
-
   return (
     <div onClick={props.setNextFrame} className="zoom-frame">
       <ReactCSSTransitionGroup

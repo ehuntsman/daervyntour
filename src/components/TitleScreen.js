@@ -6,7 +6,7 @@ function TitleScreen(props) {
     <div className="overlay" id="title-overlay">
       <div id="title-screen-header">
         <div id="logo">Daervyn Exploration DIY</div>
-        <form>
+        {/* <form>
           <input
             value={props.parentState.name}
             type="text" 
@@ -15,7 +15,7 @@ function TitleScreen(props) {
             onChange={(e) => props.changeName(e)} 
             />
           <label>Character Name</label>
-        </form>
+        </form> */}
         <ul id="menu">
           <li>
             <span onClick={props.beginStory}>Begin</span>

@@ -22,7 +22,7 @@ import "./styles/effects.css";
 import "./styles/menubuttons.css";
 import "./styles/sprites.css";
 import "./styles/textbox.css";
-import "./styles/titlescreen.css";
+import "./styles/titlescreen.scss";
 import "./styles/transitions.css";
 
 const INITIAL_STATE = {
@@ -322,7 +322,6 @@ class App extends Component {
     } else {
       zoomMultiplier = window.innerHeight * 1 / 720;
     }
-    console.log("this is the state**************", this.state )
     return (
       <div {...WheelReact.events} style={this.state.isFull ? { zoom: zoomMultiplier } : null}>
         <Fullscreen enabled={this.state.isFull} onChange={isFull => this.setState({ isFull })}>
