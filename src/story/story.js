@@ -1,28 +1,33 @@
 // bg
 const microphone = require("./bg/microphone.jpeg");
+const sleepingphantom = require("./bg/sleepingphantom.jpg")
 const entrance = require("./bg/entrance.jpeg");
-// bgm
-const take = require("./bgm/take.mp3");
-// speakers
-const b = "Block";
 // sprites
 const bn = require("./sprites/block-neutral.png");
 const bh = require("./sprites/block-happy.png");
 const bp = require("./sprites/block-pout.png");
+const vincent = require("./sprites/vincent.png");
+const akirhen = require('./sprites/akirhen.png');
+
+const b = "needtochange"
 
 let story = [
+  //Introduction
   {
-    bg: microphone,
-    bgm: take,
-    sprite: bn,
-    speaker: b,
-    text: "In this demo, we'll go over through the majority of the features that this application offers."
+    bg: sleepingphantom,
+    sprite: vincent,
+    speaker: "Vincent",
+    text: "Welcome to the Sleeping Phantom Tavern."
   },
   {
-    text: "You can see how it's applied in the repository's \"story\" folder, so follow along if you'd like."
+    spriteRight: vincent,
+    spriteLeft: akirhen,
+    sprite: "",
+    speaker: "Akirhen",
+    text: "Hello! How are you today!"
   },
   {
-    text: "Before we split into the specific features, let's go through the fundamentals."
+    text: "Would you like to go exploring today!?"
   },
   {
     text:
@@ -41,14 +46,6 @@ let story = [
     spriteRight: bh,
     text: "Or you can use all three positions simultaneously."
   },
-  {
-    spriteLeft: "",
-    spriteRight: "",
-    text: "We can also have sound effects and voices as well."
-  },
-  { text: "For example..." },
-  { speaker: "", text: 'soundEffect: require("./sounds/jump.mp3")', soundEffect: require("./sounds/jump.mp3") },
-  { speaker: b, text: "And voices are done in the same manner." },
   {
     sprite: bh,
     text: "Okay, looks like we're done with the fundamentals."
@@ -295,7 +292,6 @@ let story = [
 // It is optional and based on preference, so feel free to add or remove any function calls.
 
 setFutureProperties("bg");
-setFutureProperties("bgm");
 setFutureProperties("speaker");
 setFutureProperties("sprite");
 setFutureProperties("spriteLeft");

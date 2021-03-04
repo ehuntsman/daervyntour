@@ -8,27 +8,15 @@ class ConfigMenu extends Component {
     super(); //constructor init
 
     this.state = {
-      audioShown: true,
       textShown: false
     };
-    this.toggleAudio = this.toggleAudio.bind(this);
     this.toggleText = this.toggleText.bind(this);
-  }
-
-  toggleAudio() {
-    if (!this.state.audioShown) {
-      this.setState({
-        audioShown: true,
-        textShown: false
-      });
-    }
   }
 
   toggleText() {
     if (!this.state.textShown) {
       this.setState({
-        textShown: true,
-        audioShown: false
+        textShown: true
       });
     }
   }
@@ -51,16 +39,10 @@ class ConfigMenu extends Component {
   }
 
   render() {
-    const { audioShown, textShown } = this.state;
+    const { textShown } = this.state;
     const {
       font,
       changeFont,
-      bgmVolume,
-      bgmVolumeChange,
-      soundEffectVolume,
-      soundEffectVolumeChange,
-      voiceVolume,
-      voiceVolumeChange,
       toggleConfigMenu
     } = this.props;
     const options = [
@@ -99,17 +81,9 @@ class ConfigMenu extends Component {
           </li>
         </ul>
         <ul>
-          {this.category("Audio", audioShown, this.toggleAudio)}
           {this.category("Text", textShown, this.toggleText)}
         </ul>
         <div id="config-body">
-          {audioShown ? (
-            <div>
-              {this.slider("BGM", bgmVolume, bgmVolumeChange)}
-              {this.slider("Voice", voiceVolume, voiceVolumeChange)}
-              {this.slider("Sound Effect", soundEffectVolume, soundEffectVolumeChange)}
-            </div>
-          ) : null}
           {textShown ? (
             <div className="config-container font-container">
               Font Styles
