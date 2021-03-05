@@ -25,16 +25,16 @@ $blue:      #1A688A;
 }
 
 .text {
-  margin-top: 6px;
-  font-size: 22px;
-  line-height: 1.95;
+  margin-top: 12px;
+  font-size: 19px;
+  line-height: 1.75;
 }
 
 @media only screen and (max-width: 768px) {
   .text {
-    margin-top: 5px;
-    font-size: 20px;
-    line-height: 1.72;
+    margin-top: 12px;
+    font-size: 19px;
+    line-height: 1.75;
   }
   .text-box {
     background-size: 100% 25%;

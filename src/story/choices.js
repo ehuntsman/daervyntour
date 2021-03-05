@@ -2,28 +2,76 @@ var choices = [
   {
     choices: [
       {
-        routeBegins: "whoAreYouAkirhen",
-        content: "Who is the little red headed child?",
+        routeBegins: "introVincent",
+        content: "Who are you?",
         nextIndex: 0
       },
       {
-        routeBegins: "whoAreYouVincent",
-        content: "Who is the tall guy?",
+        routeBegins: "introSP",
+        content: "What is this place?",
         nextIndex: 0
       },
       {
-        routeBegins: "whoAreYouExploreDaervyn",
-        content: "Let's explore Daervyn!",
+        routeBegins: "introSkip",
+        content: "Order a drink.",
+        nextIndex: 1
+      }
+    ]
+  },
+  {
+    choices: [
+      {
+        routeBegins: "introAkirhen",
+        content: "Hi... Who are you?",
+        nextIndex: 1
+      },
+      {
+        routeBegins: "askVincentAboutAkirhen",
+        content: "Vincent, do you know who this is?",
+        nextIndex: 1,
+      },
+      {
+        routeBegins: "exploreSP",
+        content: "I actually wanted to explore the Sleeping Phantom first.",
+        nextIndex: 2
+      },
+      {
+        routeBegins: "exploreDaervyn",
+        content: "Explore where?",
+        nextIndex: 2
+      }
+    ]
+  },
+  {
+    choices: [
+      {
+        routeBegins: "annalayTownSquare",
+        content: "Lets explore the town square.",
         nextIndex: 0
       },
       {
-        routeBegins: "whoAreYouExploreSP",
-        content: "I'd like to explore the Sleeping Phantom.",
+        routeBegins: "annalayBeach",
+        content: "I want to check out the beach.",
         nextIndex: 0
       },
       {
-        routeBegins: "whoAreYouExplainDaervyn",
-        content: "Can you tell me about Daervyn?",
+        routeBegins: "annalayFlowerGarden",
+        content: "Can we go see the Flower Garden?",
+        nextIndex: 0
+      },
+      {
+        routeBegins: "annalaySarahsRest",
+        content: "Let's visit Sarah's Rest.",
+        nextIndex: 0
+      },
+      {
+        routeBegins: "annalayBakery",
+        content: "The bakery sounds good.",
+        nextIndex: 0
+      },
+      {
+        routeBegins: "annalayFlightPoint",
+        content: "I'd like to go to the Flight Point.",
         nextIndex: 0
       }
     ]

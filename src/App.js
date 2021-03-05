@@ -1,7 +1,6 @@
 // Dependencies
 import React, { Component } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import Fullscreen from "react-full-screen";
 import WheelReact from "wheel-react";
 // API
 import story from "./story/story";
@@ -26,7 +25,7 @@ import "./styles/titlescreen.css";
 import "./styles/transitions.css";
 
 const INITIAL_STATE = {
-  font: "Trebuchet MS",
+  font: "IM Fell Great Primer",
   isFull: false,
   choicesStore: {},
   index: 0,
@@ -190,6 +189,7 @@ class App extends Component {
   }
 
   handleChoiceSelected(event) {
+    console.log(this.state, "State when choice is made **********")
     this.stopSkip();
     this.setFrameFromChoice(event.currentTarget.name, event.currentTarget.alt);
     let nextIndex = 0;
@@ -205,6 +205,7 @@ class App extends Component {
   }
 
   renderChoiceMenu() {
+    console.log(this.state, "****state when choice menu is up")
     return (
       <ChoiceMenu choiceOptions={this.state.choiceOptions} onChoiceSelected={this.handleChoiceSelected.bind(this)} />
     );
@@ -331,7 +332,6 @@ class App extends Component {
     }
     return (
       <div {...WheelReact.events} style={this.state.isFull ? { zoom: zoomMultiplier } : null}>
-        <Fullscreen enabled={this.state.isFull} onChange={isFull => this.setState({ isFull })}>
           <ReactCSSTransitionGroup
             className="container"
             component="div"
@@ -347,7 +347,6 @@ class App extends Component {
             {this.state.frameIsRendering ? this.renderFrame() : null}
             {this.state.choicesExist ? this.renderChoiceMenu() : null}
           </ReactCSSTransitionGroup>
-        </Fullscreen>
         {!this.state.titleScreenShown ? this.renderMenuButtons() : null}
       </div>
     );
