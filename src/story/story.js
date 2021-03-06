@@ -2,8 +2,9 @@
 const microphone = require("./bg/microphone.jpeg");
 const sleepingphantom = require("./bg/sleepingphantom.jpg")
 const entrance = require("./bg/entrance.jpeg");
+const annalay = require("./bg/annalay.jpg");
 // sprites
-const bn = require("./sprites/block-neutral.png");
+const bn = require("./sprites/val.png");
 const bh = require("./sprites/block-happy.png");
 const bp = require("./sprites/block-pout.png");
 const vincent = require("./sprites/vincent.png");
@@ -22,11 +23,11 @@ let story = [
     text: "Standing behind the bar is a youthful looking man in a fine suit with two small horns on his head. He deftly pours a cup of tea for a patron when he notices you."
   },
   {
+    sprite: vincent,
+    speaker: "Vincent",
     text: "He looks up with a smile as he finishes pour and with a flourished bow he speaks."
   },
   {
-    sprite: vincent,
-    speaker: "Vincent",
     text: "Welcome dear patron to the Sleeping Phantom. What can I do for you?"
   },
   // *******************************************************************
@@ -44,7 +45,6 @@ let story = [
     text: "I am the humble owner of this tavern. Please, call me Vincent."
   },
   {
-    sprite: "",
     speaker: "",
     text: "He cleans the bar top and looks up at you once more."
   },
@@ -62,7 +62,6 @@ let story = [
     text: "The Sleeping Phantom, my pride and joy. This tavern is a place for people to find peace and rest while they are within these walls."
   },
   {
-    sprite: "",
     speaker: "",
     text: "He looks around the tavern with a soft smile as if there was more to it, but looks back at you."
   },
@@ -91,7 +90,7 @@ let story = [
   {
     sprite: akirhen,
     speaker: "Akirhen",
-    text: "Hi! I missed you! Want to go exploring!?"
+    text: "Hi! Want to go exploring!?"
   },
   // *******************************************************************
   // Intro with Akirhen - route index 1
@@ -103,7 +102,7 @@ let story = [
   // ****
   {
     routeBegins: "introAkirhen",
-    sprite: "",
+    sprite: akirhen,
     speaker: "",
     text: "With a toothy grin, the young kitsune flashes two fangs as she swings her legs."
   },
@@ -121,35 +120,36 @@ let story = [
     text: "The young miss?"
   },
   {
-    sprite: "",
     speaker: "",
     text: "Vincent looks to the little Kitsune and smiles before turning back to you."
   },
   {
     sprite: vincent,
     speaker: "Vincent",
-    text: "I would ask her, however, she is Akirhen a...pleasant young miss as long as she is able to stay out of trouble.",
+    text: "I would ask her, however, she is Akirhen. A...pleasant young miss as long as she is able to stay out of trouble.",
     jumpTo: "introWithAkirhen"
   },
   // ****
   {
     routeBegins: "exploreSP",
-    sprite: akirhen,
+    sprite: "",
+    spriteLeft: akirhen,
+    spriteRight: vincent,
     speaker: "Akirhen",
     text: "But that's so boring!"
   },
   {
-    sprite: "",
     speaker: "",
     text: "The little kitsune pouts as a short laugh comes from Vincent. He motions to the stairs."
   },
   {
-    sprite: vincent,
     speaker: "Vincent",
     text: "I would be happy to give you a tour if you would like. Beside the main floor, there is also the hot springs upstairs."
   },
   {
     sprite: "",
+    spriteLeft: "",
+    spriteRight: "",
     speaker: "",
     text: "He steps from behind the bar and you follow him upstairs.",
     jumpTo: "upstairsSP"
@@ -162,9 +162,13 @@ let story = [
     text: "Uh...Daervyn! Where else?!"
   },
   {
-    sprite: "",
     speaker: "",
-    text: "Akirhen giggles to herself as she motions to the door. The two of you head outside.",
+    text: "Akirhen giggles to herself as she motions to the door.",
+  },
+  {
+    speaker: "",
+    sprite: "",
+    text: "Without waiting for a response, she hops off the bar stool and heads outside, you following shortly after. ",
     jumpTo: "annalay"
   },
   // **** end Intro with Akirhen
@@ -177,7 +181,7 @@ let story = [
     // bg: ---------,
     sprite: "",
     speaker: "",
-    text: "As you go upstairs, the wooden stairs creak under your feet. There is a long hall with many doors.",
+    text: "As you go upstairs, the wooden stairs creak under your feet. There is a long hall with many doors, each marked with a room number for those wishing to stay overnight, with a final door with a decoration of a mountain at the far end.",
   },
   {
     sprite: vincent,
@@ -185,15 +189,13 @@ let story = [
     text: "We have many rooms, of course, but perhaps the most visited place in the tavern is our hot springs."
   },
   {
-    sprite: "",
     speaker: "",
-    text: "Vincent leads you to the first door on the left and opens it. Inside, it's too foggy to see much."
+    text: "Vincent opens the door for you and follows you inside."
   },
   {
-    // bg: ------
+    // bg: -----,
     sprite: "",
-    speaker: "",
-    text: "As you step inside, the steam clears a bit to see an outdoor hot springs."
+    text: "Stepping through, you find yourself not inside of a city, but on the side of a snowy mountain. A short distance away are two buildings on either side of pools of water with steam rising into the cold air."
   },
   {
     sprite: vincent,
@@ -201,29 +203,26 @@ let story = [
     text: "The hot springs are located in a nearby mountain forest. The door is a portal to take you there."
   },
   {
-    sprite: "",
     speaker: "",
-    text: "Vincent gestures to some nearby small shacks."
+    text: "Vincent gestures to the nearby small shacks."
   },
   {
-    sprite: vincent,
     speaker: "Vincent",
     text: "There are places to change if you wish. The water is quite warm and comforting."
   },
   {
-    sprite: "",
     speaker: "",
     text: "Vincent turns to you and gestures to the door back into the tavern."
   },
   {
-    sprite: vincent,
-    speaker: "Shall we go back down and pour you a drink?"
+    speaker: "Vincent",
+    text: "Shall we go back down and pour you a drink?"
   },
   {
     bg: sleepingphantom,
     sprite: "",
     speaker: "",
-    text: "The two of you leave the hot springs and head back downstairs. Vincent pours you an amazing drink.",
+    text: "The two of you leave the hot springs and head back downstairs. Vincent pours you an amazing drink. You spend some time there before leaving.",
     jumpTo: "theEnd"
   },
   // *******************************************************************
@@ -231,7 +230,7 @@ let story = [
   // *******************************************************************
   {
     receiveJump: "annalay",
-    // bg: -----,
+    bg: annalay,
     sprite: "",
     speaker: "",
     text: "Outside the tavern, you find a bustling city. There is a fountian in the center of the square with two statues on top of it."
@@ -242,7 +241,7 @@ let story = [
     speaker: "Akirhen",
     text: "Where do you wanna go?"
   },
-  { text: "Here in Annalay, there is the town square, the Flower Garden or the beach. Or we could go visit Sarah!"},
+  { text: "Here in Annalay, there is the town square, the Flower Garden, the bakery or the beach. Or we could go visit Sarah!"},
   {text: "We could also go to the flight tower and take a serpent to anywhere in Daervyn!"},
   {
     text: "So... where should we go?"
@@ -257,7 +256,7 @@ let story = [
     // bg: -------
     sprite: "",
     speaker: "",
-    text: "The fountain is front of you is tall and helps tie together the town square. Merchants call ouut their wares as people move about, talking amonst themselves."
+    text: "The fountain is front of you is tall and helps tie together the town square. Merchants call out their wares as people move about, talking amonst themselves. Shops line the outer wall of the square."
   },
   {
     sprite: akirhen,
@@ -265,19 +264,116 @@ let story = [
     text: "That's Valnyus and Sideon."
   },
   {
-    sprite: "",
     speaker: "",
     text: "Akirhen points to the two statues on the fountain."
   },
   {
     sprite: akirhen,
     speaker: "Akirhen",
-    text: "They're the main gods worshiped here in Annalay."
+    text: "They're the main gods worshiped here in Annalay, though most people say they aren't actually gods anymore. They do run the city though!"
   },
   {
-    text: "****probably need more text here about the gods!"
+    speaker: "???",
+    sprite: "",
+    spriteLeft: akirhen,
+    spriteRight: bn,
+    text: "I suppose that is a matter of perspective isn't it?"
   },
   {
+    speaker: "",
+    text: "A cheery voice speaks walking up to the pair.",
+  },
+  {
+    speaker: "???",
+    text: "Are they still gods despite their fallen state? I'm not sure even they know at this point."
+  },
+  {
+    speaker: "",
+    spriteLeftEffect: "bounce",
+    text: "Akirhen jumps moving to your side and speaking in a quiet tone."
+  },
+  {
+    speaker: "Akirhen",
+    text: "I...don't know who that is...Why don't you talk to her?"
+  },
+  {
+    speaker: "",
+    text: "The woman, clearly hearing Akirhen, looks to you expectantly."
+  },
+  // *******************************************************************
+  // Talk with Valnyus - route index 3
+  // *******************************************************************
+  {
+    choicesExist: true,
+    receiveJump: "talkWithValnyus"
+  },
+  // ****
+  {
+    routeBegins: "whoAreYouValnyus",
+    sprite: bn,
+    spriteLeft: "",
+    spriteRight: "",
+    text: "The woman flashes a soft smile."
+  },
+  {
+    speaker: "Val",
+    text: "Usually the polite thing to do is give one's name before asking for another's, but I don't mind. I'm Val, a traveling Minstrel of sorts here with my friend...Wherever he got off to. Anyway, it's a pleasure to meet you! I have some time before Vel gets back if you would like to know more about the gods.",
+    jumpTo: "talkWithValnyus"
+  },
+  // ****
+  {
+    routeBegins: "askAboutSideon",
+    sprite: "",
+    spriteLeft: akirhen,
+    spriteRight: bn,
+    speaker: "Val",
+    text: "What's there to know about Sideon...? He is the god of traders and commerce for one. He is typically depicted as a strict businessman with a stick up his..,"
+  },
+  {
+    speaker: "",
+    text: "She pauses looking at Akirhen."
+  },
+  {
+    speaker: "Val",
+    text: "Nevermind, the story goes he is actually a big softie should you not get on his bad side.",
+    jumpTo: "talkWithValnyus"
+  },
+  // ****
+  {
+    routeBegins: "askAboutValnyus",
+    sprite: "",
+    spriteLeft: akirhen,
+    spriteRight: bn,
+    speaker: "Val",
+    text: "Other than she is gorgeous and should be the goddess of beauty? She is actually the goddess of Order and War. Most worship her for the continued peace of Annalay.",
+    jumpTo: "talkWithValnyus",
+  },
+  // ****
+  {
+    routeBegins: "noQuestions",
+    sprite: "",
+    spriteLeft: akirhen,
+    spriteRight: bn,
+    speaker: "Val",
+    text: "No problem at all! I think I can see Vel with the psuedodragons...Oh, I hope it doesn't go like last time.",
+  },
+  {
+    speaker: "",
+    text: "Val looks past you to a nearby shop. "
+  },
+  {
+    speaker: "Val",
+    text: "If you will excuse me. Enjoy your time in Annalay!"
+  },
+  {
+    sprite: akirhen,
+    spriteLeft: "",
+    spriteRight: "",
+    speaker: "",
+    text: "Val waves before heading off calling out for Vel."
+  },
+  {
+    speaker: "Akirhen",
     text: "I could go for a hot chocolate! Let's go bug Vincent for drinks!"
   },
   {
@@ -301,9 +397,11 @@ let story = [
   {
     routeBegins: "annalayBeach",
     // bg: ------,
-    spite: "",
+    sprite: "",
+    spriteLeft: "",
+    spriteRight: "",
     speaker: "",
-    text: "The docks of the harbor are filled iwth large boats, but to the side of it lays an open beach."
+    text: "The docks of the harbor are filled with large boats, but to the side of it lays an open beach."
   },
   {
     text: "There are a few people at the beach, playing and relaxing."
@@ -368,8 +466,39 @@ let story = [
     routeBegins: "annalaySarahsRest",
     // bg:----
     sprite: "",
+    spriteLeft: "",
+    spriteRight: "",
     speaker: "",
     text: "Not done yet."
+  },
+  {
+    speaker: "Akirhen",
+    sprite: akirhen,
+    text: "Let's go get some hot chocolate!"
+  },
+  {
+    sprite: "",
+    speaker: "",
+    text: "The two of you head back to the Sleeping Phantom."
+  },
+  {
+    bg: sleepingphantom,
+    spriteLeft: akirhen,
+    spriteRight: vincent,
+    speaker: "Vincent",
+    text: "Did you two have a nice tour?",
+  },
+  {
+    speaker: "Akirhen",
+    text: "Yup! Now we need hot chocolate. With straws!",
+    jumpTo: "theEnd"
+  },
+  // ****
+  {
+    routeBegins: "annalayBakery",
+    sprite: "",
+    speaker: "",
+    text: "It's a bakery!"
   },
   {
     speaker: "Akirhen",
@@ -405,6 +534,28 @@ let story = [
     speaker: "Akirhen",
     text: "I have nothing else so it's the end for now",
     jumpTo: "theEnd"
+  },
+
+  // *******************************************************************
+  // The End
+  // *******************************************************************
+  {
+    receiveJump: "theEnd",
+    sprite: "",
+    spriteRight: "",
+    spriteLeft: "",
+    // bg: -----,
+    speaker: "",
+    text: "This is the end of the tour. You may recieve one favor a week for completing this tour by messaging Kyoko."
+  },
+  {
+    text: "You can go through this tour as many times as you'd like without favor."
+  },
+  {
+    text: "Updates will happen periodily to extend the tour aand reflect current Daervyn situations."
+  },
+  {
+    text: "Pleaase refresh the pge or close the browser",
   },
 
   // ***********************************************************************************************************
@@ -513,9 +664,6 @@ let story = [
   // *******************************************************************
   // exploreDaervyn
   // *******************************************************************
-  {
-    receiveJump: "enterAnnalay",
-  },
 
   {
     text:"fdsafsa"

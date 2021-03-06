@@ -13,10 +13,10 @@ function MenuButtons(props) {
         {handleToggles(KEYDOWN, "Control", props.setNextFrame)}
         {handleToggles(KEYUP, "Enter", props.setNextFrame)}
         <button><a href="/">Start Over</a></button>
-        <button onClick={props.toggleConfigMenu}>{props.configMenuShown ? "Hide Config" : "Config"}</button>
-        <button onClick={props.toggleFullscreen} style={{ float: "right" }}>
+        {/* <button onClick={props.toggleConfigMenu}>{props.configMenuShown ? "Hide Config" : "Config"}</button> */}
+        {/* <button onClick={props.toggleFullscreen} style={{ float: "right" }}>
           Fullscreen
-        </button>
+        </button> */}
       </div>
     </div>
   );

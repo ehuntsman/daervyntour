@@ -1,5 +1,6 @@
 // Dependencies
 import React, { Component } from "react";
+import Sound from "react-sound";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import WheelReact from "wheel-react";
 // API
@@ -9,7 +10,7 @@ import choices from "./story/choices";
 import TitleScreen from "./components/TitleScreen";
 import Backlog from "./components/Backlog";
 import ChoiceMenu from "./components/ChoiceMenu";
-import ConfigMenu from "./components/ConfigMenu";
+// import ConfigMenu from "./components/ConfigMenu";
 import RenderFrame from "./components/RenderFrame";
 import MenuButtons from "./components/MenuButtons";
 // CSS
@@ -25,8 +26,11 @@ import "./styles/titlescreen.css";
 import "./styles/transitions.css";
 
 const INITIAL_STATE = {
+  bgmVolume: 80,
+  soundEffectVolume: 90,
+  voiceVolume: 100,
   font: "IM Fell Great Primer",
-  isFull: false,
+  // isFull: false,
   choicesStore: {},
   index: 0,
   stateHistory: [],
@@ -34,7 +38,7 @@ const INITIAL_STATE = {
   choicesIndexHistory: [],
   indexHistory: [],
   choicesExist: false,
-  configMenuShown: false,
+  // configMenuShown: false,
   titleScreenShown: true,
   frameIsRendering: false,
   backlogShown: false,
@@ -56,8 +60,8 @@ class App extends Component {
         if (
           !this.state.backlogShown &&
           !this.state.choicesExist &&
-          !this.state.titleScreenShown &&
-          !this.state.configMenuShown
+          !this.state.titleScreenShown
+          // !this.state.configMenuShown
         ) {
           this.toggleBacklog();
         }
@@ -117,8 +121,8 @@ class App extends Component {
     if (
       !this.state.choicesExist &&
       !this.state.titleScreenShown &&
-      !this.state.backlogShown &&
-      !this.state.configMenuShown
+      !this.state.backlogShown 
+      // !this.state.configMenuShown
     ) {
       this.setFrame(currentIndex + 1);
     }
@@ -211,19 +215,19 @@ class App extends Component {
     );
   }
 
-  toggleConfigMenu() {
-    if (this.state.backlogShown) {
-      this.setState({ backlogShown: false });
-    }
-    this.setState(prevState => ({
-      configMenuShown: !prevState.configMenuShown
-    }));
-  }
+  // toggleConfigMenu() {
+  //   if (this.state.backlogShown) {
+  //     this.setState({ backlogShown: false });
+  //   }
+  //   this.setState(prevState => ({
+  //     configMenuShown: !prevState.configMenuShown
+  //   }));
+  // }
 
   toggleBacklog() {
-    if (this.state.configMenuShown) {
-      this.setState({ configMenuShown: false });
-    }
+    // if (this.state.configMenuShown) {
+    //   this.setState({ configMenuShown: false });
+    // }
     this.setState(prevState => ({
       backlogShown: !prevState.backlogShown
     }));
@@ -268,26 +272,26 @@ class App extends Component {
     return <TitleScreen beginStory={this.beginStory.bind(this)} parentState={this.state} changeName={this.handleChange} />;
   }
 
-  configMenu() {
-    return (
-      <ConfigMenu
-        changeFont={newFont => this.setState({ font: newFont.label })}
-        font={this.state.font}
-        toggleConfigMenu={this.toggleConfigMenu.bind(this)}
-      />
-    );
-  }
+  // configMenu() {
+  //   return (
+  //     <ConfigMenu
+  //       changeFont={newFont => this.setState({ font: newFont.label })}
+  //       font={this.state.font}
+  //       toggleConfigMenu={this.toggleConfigMenu.bind(this)}
+  //     />
+  //   );
+  // }
 
   renderMenuButtons() {
     return (
       <MenuButtons
         menuButtonsShown={this.state.menuButtonsShown}
         setNextFrame={this.setNextFrame.bind(this)}
-        toggleConfigMenu={this.toggleConfigMenu.bind(this)}
-        configMenuShown={this.state.configMenuShown}
+        // toggleConfigMenu={this.toggleConfigMenu.bind(this)}
+        // configMenuShown={this.state.configMenuShown}
         toggleBacklog={this.toggleBacklog.bind(this)}
         toggleTextBox={this.toggleTextBox.bind(this)}
-        toggleFullscreen={() => this.setState({ isFull: true })}
+        // toggleFullscreen={() => this.setState({ isFull: true })}
         textBoxShown={this.state.textBoxShown}
         backlogShown={this.state.backlogShown}
         beginStory={this.beginStory.bind(this)}
@@ -323,6 +327,18 @@ class App extends Component {
     }
   }
 
+  playBGM() {
+    return <Sound url={this.state.bgm} volume={this.state.bgmVolume} playStatus={Sound.status.PLAYING} loop={true} />;
+  }
+  playSoundEffect() {
+    return (
+      <Sound url={this.state.soundEffect} volume={this.state.soundEffectVolume} playStatus={Sound.status.PLAYING} />
+    );
+  }
+  playVoice() {
+    return <Sound url={this.state.voice} volume={this.state.voiceVolume} playStatus={Sound.status.PLAYING} />;
+  }
+
   render() {
     let zoomMultiplier = 0;
     if (window.innerWidth * 1 / window.innerHeight <= 1280 * 1 / 720) {
@@ -331,24 +347,24 @@ class App extends Component {
       zoomMultiplier = window.innerHeight * 1 / 720;
     }
     return (
-      <div {...WheelReact.events} style={this.state.isFull ? { zoom: zoomMultiplier } : null}>
-          <ReactCSSTransitionGroup
-            className="container"
-            component="div"
-            transitionName="menu"
-            transitionEnterTimeout={400}
-            transitionLeaveTimeout={400}
-          >
-            {this.state.titleScreenShown ? this.titleScreen() : null}
-            {this.state.frameIsRendering ? this.renderFrame() : null}
-            {/* GUI menu buttons */}
-            {this.state.configMenuShown ? this.configMenu() : null}
-            {this.state.backlogShown ? this.backlog() : null}
-            {this.state.frameIsRendering ? this.renderFrame() : null}
-            {this.state.choicesExist ? this.renderChoiceMenu() : null}
-          </ReactCSSTransitionGroup>
-        {!this.state.titleScreenShown ? this.renderMenuButtons() : null}
-      </div>
+      <ReactCSSTransitionGroup
+        className="container"
+        component="div"
+        transitionName="menu"
+        transitionEnterTimeout={400}
+        transitionLeaveTimeout={400}
+      >
+        {this.state.titleScreenShown ? this.titleScreen() : null}
+        {this.state.frameIsRendering ? this.renderFrame() : null}
+        {/* GUI menu buttons */}
+        {/* {this.state.configMenuShown ? this.configMenu() : null} */}
+        {this.state.backlogShown ? this.backlog() : null}
+        {this.state.frameIsRendering ? this.renderFrame() : null}
+        {this.state.choicesExist ? this.renderChoiceMenu() : null}
+        {this.state.bgm ? this.playBGM() : null}
+        {this.state.soundEffect ? this.playSoundEffect() : null}
+        {this.state.voice ? this.playVoice() : null}
+      </ReactCSSTransitionGroup>
     );
   }
 }

@@ -1,5 +1,6 @@
 var choices = [
   {
+    // 0
     choices: [
       {
         routeBegins: "introVincent",
@@ -19,6 +20,7 @@ var choices = [
     ]
   },
   {
+    // 1
     choices: [
       {
         routeBegins: "introAkirhen",
@@ -43,15 +45,16 @@ var choices = [
     ]
   },
   {
+    // 2
     choices: [
       {
         routeBegins: "annalayTownSquare",
         content: "Lets explore the town square.",
-        nextIndex: 0
+        nextIndex: 3
       },
       {
         routeBegins: "annalayBeach",
-        content: "I want to check out the beach.",
+        content: "I want to check out the docks.",
         nextIndex: 0
       },
       {
@@ -61,7 +64,7 @@ var choices = [
       },
       {
         routeBegins: "annalaySarahsRest",
-        content: "Let's visit Sarah's Rest.",
+        content: "Who's Sarah?",
         nextIndex: 0
       },
       {
@@ -77,26 +80,27 @@ var choices = [
     ]
   },
   {
+    // 3
     choices: [
       {
-        routeBegins: "showEffects",
-        content: "Effects",
-        nextIndex: 0
+        routeBegins: "whoAreYouValnyus",
+        content: "Who are you?",
+        nextIndex: 3
       },
       {
-        routeBegins: "showTransitions",
-        content: "Transitions",
-        nextIndex: 0
-      },
-
-      {
-        routeBegins: "showStoringChoices",
-        content: "Storing choices for future use",
-        resetStore: "true"
+        routeBegins: "askAboutSideon",
+        content: "What do you know about Sideon?",
+        nextIndex: 3
       },
       {
-        routeBegins: "leave",
-        content: "Leave"
+        routeBegins: "askAboutValnyus",
+        content: "What do you know about Valnyus?",
+        nextIndex: 3
+      },
+      {
+        routeBegins: "noQuestions",
+        content: "That's all thank you.",
+        nextIndex: 4
       }
     ]
   },
