@@ -44,6 +44,41 @@ var choices = [
       }
     ]
   },
+  // {
+  //   // 2
+  //   choices: [
+  //     {
+  //       routeBegins: "annalayTownSquare",
+  //       content: "Lets explore the town square.",
+  //       nextIndex: 3
+  //     },
+  //     {
+  //       routeBegins: "annalayBeach",
+  //       content: "I want to check out the docks.",
+  //       nextIndex: 0
+  //     },
+  //     {
+  //       routeBegins: "annalayFlowerGarden",
+  //       content: "Can we go see the Flower Garden?",
+  //       nextIndex: 0
+  //     },
+  //     {
+  //       routeBegins: "annalaySarahsRest",
+  //       content: "Who's Sarah?",
+  //       nextIndex: 0
+  //     },
+  //     {
+  //       routeBegins: "annalayBakery",
+  //       content: "The bakery sounds good.",
+  //       nextIndex: 0
+  //     },
+  //     {
+  //       routeBegins: "annalayFlightPoint",
+  //       content: "I'd like to go to the Flight Point.",
+  //       nextIndex: 0
+  //     }
+  //   ]
+  // },
   {
     // 2
     choices: [
@@ -52,31 +87,6 @@ var choices = [
         content: "Lets explore the town square.",
         nextIndex: 3
       },
-      {
-        routeBegins: "annalayBeach",
-        content: "I want to check out the docks.",
-        nextIndex: 0
-      },
-      {
-        routeBegins: "annalayFlowerGarden",
-        content: "Can we go see the Flower Garden?",
-        nextIndex: 0
-      },
-      {
-        routeBegins: "annalaySarahsRest",
-        content: "Who's Sarah?",
-        nextIndex: 0
-      },
-      {
-        routeBegins: "annalayBakery",
-        content: "The bakery sounds good.",
-        nextIndex: 0
-      },
-      {
-        routeBegins: "annalayFlightPoint",
-        content: "I'd like to go to the Flight Point.",
-        nextIndex: 0
-      }
     ]
   },
   {

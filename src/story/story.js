@@ -3,12 +3,14 @@ const microphone = require("./bg/microphone.jpeg");
 const sleepingphantom = require("./bg/sleepingphantom.jpg")
 const entrance = require("./bg/entrance.jpeg");
 const annalay = require("./bg/annalay.jpg");
+const hotsprings = require("./bg/hotsprings.jpg");
 // sprites
 const bn = require("./sprites/val.png");
 const bh = require("./sprites/block-happy.png");
 const bp = require("./sprites/block-pout.png");
 const vincent = require("./sprites/vincent.png");
 const akirhen = require('./sprites/akirhen.png');
+const sarah = require('./sprites/sarah.png');
 
 const b = "needtochange"
 
@@ -193,7 +195,7 @@ let story = [
     text: "Vincent opens the door for you and follows you inside."
   },
   {
-    // bg: -----,
+    bg: hotsprings,
     sprite: "",
     text: "Stepping through, you find yourself not inside of a city, but on the side of a snowy mountain. A short distance away are two buildings on either side of pools of water with steam rising into the cold air."
   },
@@ -241,8 +243,9 @@ let story = [
     speaker: "Akirhen",
     text: "Where do you wanna go?"
   },
-  { text: "Here in Annalay, there is the town square, the Flower Garden, the bakery or the beach. Or we could go visit Sarah!"},
-  {text: "We could also go to the flight tower and take a serpent to anywhere in Daervyn!"},
+  // { text: "Here in Annalay, there is the town square, the Flower Garden, the bakery or the beach. Or we could go visit Sarah!"},
+  // {text: "We could also go to the flight tower and take a serpent to anywhere in Daervyn!"},
+  { text: "I suggest we check out the town square, okay?" },
   {
     text: "So... where should we go?"
   },
@@ -463,13 +466,38 @@ let story = [
   },
   // ****
   {
+    bg: annalay,
     routeBegins: "annalaySarahsRest",
-    // bg:----
-    sprite: "",
+    sprite: akirhen,
     spriteLeft: "",
     spriteRight: "",
+    speaker: "Akirhen",
+    text: "Sarah owns Sarah's Rest! It's a magic shop here in town.",
+  },
+  {
+    text: "Akirhen starts walking off satisfied with her answer.",
+    speaker: ""
+  },
+  {
+    speaker: "Akirhen",
+    text: "C'mon! You can see for yourself!"
+  },
+  {
     speaker: "",
-    text: "Not done yet."
+    sprite: "",
+    text: "The smol kitsune leads you to the market district of the city where a sign hangs over a staircase leading down saying Sarah's Rest written in glowing Pink letters."
+  },
+  {
+    // bg: ----,
+    text: "Akirhen steps inside as a small bell rings with the door opening. The air is filled with the scent of a subtle perfume as magical items line various shelves."
+  },
+  {
+    text: "A sensual voice call out from the back of the shop."
+  },
+  {
+    speaker: "???",
+    sprite: sarah,
+    text: "I will be out in a moment Darling." 
   },
   {
     speaker: "Akirhen",
@@ -534,131 +562,6 @@ let story = [
     speaker: "Akirhen",
     text: "I have nothing else so it's the end for now",
     jumpTo: "theEnd"
-  },
-
-  // *******************************************************************
-  // The End
-  // *******************************************************************
-  {
-    receiveJump: "theEnd",
-    sprite: "",
-    spriteRight: "",
-    spriteLeft: "",
-    // bg: -----,
-    speaker: "",
-    text: "This is the end of the tour. You may recieve one favor a week for completing this tour by messaging Kyoko."
-  },
-  {
-    text: "You can go through this tour as many times as you'd like without favor."
-  },
-  {
-    text: "Updates will happen periodily to extend the tour aand reflect current Daervyn situations."
-  },
-  {
-    text: "Pleaase refresh the pge or close the browser",
-  },
-
-  // ***********************************************************************************************************
-  {
-    choicesExist: true,
-    receiveJump: "whoAreYou"
-  },
-
-  // *******************************************************************
-  // whoAreYou
-  // *******************************************************************
-  {
-    routeBegins: "whoAreYouAkirhen", spriteLeft: "", spriteRight: "", sprite: akirhen, speaker: "Akirhen", text: "Oh! I'm Akirhen! We're old friends. Well, maybe not. It's weird."
-  },
-  {
-    text: "See, there are parallel timelines in Daervyn, and a while ago there was a blurr of those timelines."
-  },
-  {
-    text: "So I know you, but you might not know me."
-  },
-  {
-    text: "That's okay! I still love you! So, do you want to go exploring?",
-    jumpTo: "whoAreYou"
-  },
-  {
-    routeBegins: "whoAreYouVincent", spriteLeft: "", spriteRight: "", sprite: vincent, speaker: "Vincent", text: "My name is Vincent. I am the owner of the Sleeping Phantom Tavern."
-  },
-  {
-    text: "Information on the tavern goes here. Get information from Sain.",
-    jumpTo: "whoAreYou"
-  },
-  {
-    routeBegins: "whoAreYouExploreDaervyn", spriteLeft: "", spriteRight: "", sprite: akirhen, speaker: "Akirhen", text: "Great! Let's go explore Daervyn!"
-  },
-  {
-    speaker: "Narrator",
-    text: "Akirhen leads you out of the tavern."
-  },
-  {
-    // bg: AnimationPlaybackEvent,
-    speaker: "Akirhen",
-    text: "This is the city of Annalay!"
-  },
-  {
-    text: "It's a pretty big city. Would you like to explore here or go to a flight point and see somewhere else in Daervyn?"
-  },
-  {
-    choicesExist: true,
-    receiveJump: "whereInAnnalay"
-  },
-  {
-    routeBegins: "whoAreYouExploreSP", spriteLeft: "", spriteRight: "", sprite: vincent, speaker: "Vincent", text: "It would be my pleasure to give you a tour of the tavern."
-  },
-  {
-    routeBegins: "whoAreYouExplainDaervyn", spriteLeft: akirhen, sprite: "", spriteRight: vincent, speaker: "Akirhen", text: "Oh yeah! I keep forgetting you might not know it that well in this timeline."
-  },
-  {
-    text: "Daervyn is made up of three... well, four continents. But the fourth one is the floating South Pole and no one can really get there."
-  },
-  {
-    speaker: "Narrator",
-    text: "Vincent points to a map displayed on the wall."
-  },
-  {
-    speaker: "Vincent",
-    text: "The continent usually displayed on the left of the map is Mel Shenshir. It has many large mountains, and is populated by mostly Dwarves."
-  },
-  {
-    text: "The current king, or 'Dorni', is Lythur Sishan. He is well respected in the clans."
-  },
-  {
-    speaker: "Akirhen",
-    text: "Oh! And the center continent is Sir'ena! It's got a big mountain, but mostly it's known for the R'gra desert!"
-  },
-  {
-    text: "The R'gra desert is filled with ghosties!"
-  },
-  {
-    speaker: "Vincent",
-    text: "We are currently located in the city of Annalay on Sir'ena."
-  },
-  {
-    speaker: "Akirhen",
-    text: "Yeah, but there aren't very many ghosties here."
-  },
-  {
-    speaker: "Vincent",
-    text: "The continent usually displayed on the right is K'vilna. There are two major port cities there, as well as Bjorvax."
-  },
-  {
-    text: "Bjorvax is a large city controlled mostly by the Hallowed Vanguard. It is also the closest city to the Selnata portal."
-  },
-  {
-    speaker: "Akirhen",
-    text: "K'vilna is also where Oirae is! That's where the timelime issues were!"
-  },
-  {
-    speaker: "Vincent",
-    text: "The time issues have been taken care of, and Oirae is a safe place now."
-  },
-  {
-    speaker: "Akirhen",
-    text: "Yup! So that's a pretty broad overview. Would you like you like to explore with me?"
   },
 
   // *******************************************************************
@@ -920,7 +823,29 @@ let story = [
     spriteEffect: "shake",
     text: "Thank you for trying out the demo.",
     jumpTo: "title-screen"
-  }
+  },
+  // *******************************************************************
+  // The End
+  // *******************************************************************
+  {
+    receiveJump: "theEnd",
+    sprite: "",
+    spriteRight: "",
+    spriteLeft: "",
+    bg: sleepingphantom,
+    speaker: "",
+    text: "This is the end of the tour. You may recieve one favor a week for completing this tour by messaging Kyoko."
+  },
+  {
+    text: "You can go through this tour as many times as you'd like without favor."
+  },
+  {
+    text: "Updates will happen periodily to extend the tour and reflect current Daervyn situations."
+  },
+  {
+    text: "Please refresh the page or close the browser",
+  },
+
 ];
 
 // The code below is to set undefined properties to the last defined property.
