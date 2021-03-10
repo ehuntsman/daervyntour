@@ -1,21 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Benne&display=swap&family=Metamorphous&display=swap");
+
 .overlay-choices {
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   flex-direction: column;
+  font-family: 'Benne', Georgia, serif;
 }
 
 .overlay .choice-button {
-  font-size: 26px;
-  width: 750px;
+  font-size: 20px;
+  width: 700px;
   margin: 30px auto;
   border-radius: 25px;
   background-color: #1d75a5;
   border: none;
+  font-family: 'Benne', Georgia, serif;
   color: white;
-  padding: 12px 0px;
+  padding: 23px 0px 15px;
   cursor: pointer;
   display: block;
+  background: rgb(107,205,197);
+  background: linear-gradient(30deg, rgba(107,205,197,0.8) 0%, rgba(41,147,175,0.8) 100%);
 }
 
 @media only screen and (max-width: 833px) {

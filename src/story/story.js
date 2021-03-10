@@ -4,13 +4,18 @@ const sleepingphantom = require("./bg/sleepingphantom.jpg")
 const entrance = require("./bg/entrance.jpeg");
 const annalay = require("./bg/annalay.jpg");
 const hotsprings = require("./bg/hotsprings.jpg");
+const fpannalay = require("./bg/flightpath.jpg");
+const serpent = require("./bg/serpent.png");
+const bjorvax = require("./bg/bjorvax.png");
 // sprites
-const bn = require("./sprites/val.png");
+const val = require("./sprites/val.png");
+const bn = require("./sprites/block-neutral.png");
 const bh = require("./sprites/block-happy.png");
 const bp = require("./sprites/block-pout.png");
 const vincent = require("./sprites/vincent.png");
 const akirhen = require('./sprites/akirhen.png');
 const sarah = require('./sprites/sarah.png');
+const anora = require("./sprites/anora.png");
 
 const b = "needtochange"
 
@@ -245,7 +250,6 @@ let story = [
   },
   // { text: "Here in Annalay, there is the town square, the Flower Garden, the bakery or the beach. Or we could go visit Sarah!"},
   // {text: "We could also go to the flight tower and take a serpent to anywhere in Daervyn!"},
-  { text: "I suggest we check out the town square, okay?" },
   {
     text: "So... where should we go?"
   },
@@ -279,7 +283,7 @@ let story = [
     speaker: "???",
     sprite: "",
     spriteLeft: akirhen,
-    spriteRight: bn,
+    spriteRight: val,
     text: "I suppose that is a matter of perspective isn't it?"
   },
   {
@@ -313,7 +317,7 @@ let story = [
   // ****
   {
     routeBegins: "whoAreYouValnyus",
-    sprite: bn,
+    sprite: val,
     spriteLeft: "",
     spriteRight: "",
     text: "The woman flashes a soft smile."
@@ -328,7 +332,7 @@ let story = [
     routeBegins: "askAboutSideon",
     sprite: "",
     spriteLeft: akirhen,
-    spriteRight: bn,
+    spriteRight: val,
     speaker: "Val",
     text: "What's there to know about Sideon...? He is the god of traders and commerce for one. He is typically depicted as a strict businessman with a stick up his..,"
   },
@@ -346,7 +350,7 @@ let story = [
     routeBegins: "askAboutValnyus",
     sprite: "",
     spriteLeft: akirhen,
-    spriteRight: bn,
+    spriteRight: val,
     speaker: "Val",
     text: "Other than she is gorgeous and should be the goddess of beauty? She is actually the goddess of Order and War. Most worship her for the continued peace of Annalay.",
     jumpTo: "talkWithValnyus",
@@ -356,7 +360,7 @@ let story = [
     routeBegins: "noQuestions",
     sprite: "",
     spriteLeft: akirhen,
-    spriteRight: bn,
+    spriteRight: val,
     speaker: "Val",
     text: "No problem at all! I think I can see Vel with the psuedodragons...Oh, I hope it doesn't go like last time.",
   },
@@ -524,6 +528,8 @@ let story = [
   // ****
   {
     routeBegins: "annalayBakery",
+    spriteLeft: "",
+    spriteRight: "",
     sprite: "",
     speaker: "",
     text: "It's a bakery!"
@@ -552,25 +558,215 @@ let story = [
   },
   // ****
   {
+    bg: annalay,
     routeBegins: "annalayFlightPoint",
-    // bg:----
-    sprite: "",
+    spriteLeft: "",
+    spriteRight: "",
+    sprite: akirhen,
+    speaker: "Akirhen",
+    text: "Fantastic! We can fly anywhere in Daervyn from there!"
+  },
+  {
+    bg: fpannalay,
     speaker: "",
-    text: "Not done yet."
+    sprite: "",
+    text: "Akirhen leads you across the square and through the town to a large tower.",
+  },
+  {
+    speaker: "",
+    sprite: "",
+    text: "Flying serpents are the main way to travel long distance in Daervyn. They can hold a small group of people, and fly over the oceans to take you where you need to go."
   },
   {
     speaker: "Akirhen",
-    text: "I have nothing else so it's the end for now",
+    sprite: "",
+    text: "They're quite big, but super friendly. Like giant flying horses!"
+  },
+  {
+    bg: serpent,
+    speaker: "",
+    sprite: "",
+    text: "The two of you approach a docking station where a large green serpents sits patiently, waiting for you to board."
+  },
+  {
+    sprite: akirhen,
+    speaker: "Akirhen",
+    text: "We can fly anywhere in Daervyn from here!"
+  },
+  {
+    text: "So, where in Daervyn do you wanna go?"
+  },
+  // *******************************************************************
+  // exploreDaervyn - route index 4
+  // *******************************************************************
+  {
+    choicesExist: true,
+    receiveJump: "flightpoint"
+  },
+  {
+    routeBegins: "bjorvax",
+    sprite: "",
+    speaker: "",
+    text: "You board the serpent and shortly after it takes to the skies towards Bjorvax."
+  },
+  {
+    bg: bjorvax,
+    text: "After crossing an ocean, the serpent descents down upon a walled city."
+  },
+  {
+    text: "The serpent lands in a similar flight port like in Annalay. You and Akirhen get off and venture into the city."
+  },
+  {
+    sprite: akirhen,
+    speaker: "Akirhen",
+    text: "The city itself is a melting pot of Ofurian refugees and Daervyn natives.",
+  },
+  {
+    text: "Bjorvax is a large city with three guild halls, but people really only care about the Vanguard."
+  },
+  {
+    speaker: "",
+    text: "Prayer flags and Vanguard banners cross streets of giant Dwarven buildings with curled roofs and colorful patterns. Merchants call out various goods and services from all over the streets."
+  },
+  {
+    speaker: "Akirhen",
+    text: "Bjorvax likes to party. They usually have fireworks at night. It's super pretty!"
+  },
+  {
+    speaker: "",
+    text: "The two of you walk the streets, passing by a burned down old tavern and an iron-gated mansion."
+  },
+  {
+    text: "Leaving the manor as you pass by is a woman who appears to be quite distracted. She bumbs into Akirhen accidently."
+  },
+  {
+    spriteLeft: akirhen,
+    sprite: "",
+    spriteRight: anora,
+    speaker: "???",
+    text: "Oh my! I'm so sorry, love! I wasn't paying attention there. Are you alright?"
+  },
+  {
+    speaker: "",
+    text: "Akirhen seems quite unsettled and hides behind you."
+  },
+  {
+    speaker: "Akirhen",
+    text: "You're Anora Crawford."
+  },
+  {
+   speaker: "",
+   text: "The woman gives a slight bow."
+  },
+  {
+    speaker: "Anora",
+    text: "That I am. Surprised you recognized me. The family name sort of drifted out of the limelight after my brother-to-be passed away."
+  },
+  {
+    speaker: "",
+    text: "Akirhen is still quite upset. She stays behind you."
+  },
+  // *******************************************************************
+  // talkWithAnora - route index 5
+  // *******************************************************************
+  {
+    choicesExist: true,
+    receiveJump: "talkWithAnora"
+  },
+  {
+    routeBegins: "introduceYourself",
+    sprite: "",
+    spriteLeft: akirhen,
+    spriteRight: anora,
+    speaker: "Anora",
+    text: "Pleasure to meet you. I am ...well, as the little one said. Anora Crawford. I'm no one important, I'm afraid. Just a Bjorvax resident.",
+    jumpTo: "talkWithAnora"
+  },
+  // ****
+  {
+    routeBegins: "crawfordHistory",
+    sprite: "",
+    spriteLeft: akirhen,
+    spriteRight: anora,
+    speaker: "Anora",
+    text: "Ah, yes, the ol' Crawford Manor. It's quite famous. Our family is well to do and all. Well, was."
+  },
+  {
+    text: "About a year ago, my sister was to marry a man named Theo. And he ...well, love, it's a messy story, but he tried to kill her."
+  },
+  {
+    text: "A detective from the Syndicate figured out everything, but Theo didn't make it. My sister was so heartbroken she fell out of the social circle."
+  },
+  {
+    text: "Our family reputation was sullied. Eventually people stopped talking about it and we are just boring citizens of Bjorvax now.",
+    jumpTo: "talkWithAnora",
+  },
+  // ****
+  {
+    routeBegins: "byeAnora",
+    sprite: "",
+    spriteLeft: akirhen,
+    spriteRight: anora,
+    speaker: "Anora",
+    text: "Of course. Pleasure to meet ya, love. If you come around again, be sure to stop by my house anytime."
+  },
+  {
+    spriteLeft: "",
+    spriteRight: "",
+    sprite: akirhen,
+    speaker: "",
+    text: "Anora leaves off into the bustling city of Bjorvax."
+  },
+  {
+    sprite: akirhen,
+    text: "Akirhen steps out from behind you, watching Anora carefully."
+  },
+  {
+    speaker: "Akirhen",
+    text: "She wouldn't remember because it's a different timeline, but I saw her killed by a grimole."
+  },
+  {
+    speaker: "",
+    text: "Akirhen shakes her head sadly."
+  },
+  {
+    speaker: "Akirhen",
+    text: "Anora was the leader of serveral rebellions against the darkness. It seemed that almost every timeline had her fighting."
+  },
+  {
+    text: "Her base was often used as a safe place for those hiding from whatever went wrong."
+  },
+  {
+    speaker: "",
+    text: "Akirhen's sadness quickly fades away and she smiles up at you."
+  },
+  {
+    speaker: "Akirhen",
+    text: "Let's go back to the Sleeping Phantom and get some hot chocolate!"
+  },
+  {
+    sprite: "",
+    speaker: "",
+    text: "The two of you head back to the Sleeping Phantom."
+  },
+  {
+    bg: sleepingphantom,
+    spriteLeft: akirhen,
+    spriteRight: vincent,
+    speaker: "Vincent",
+    text: "Did you two have a nice tour?",
+  },
+  {
+    speaker: "Akirhen",
+    text: "Yup! Now we need hot chocolate. With straws!",
     jumpTo: "theEnd"
   },
 
-  // *******************************************************************
-  // exploreDaervyn
-  // *******************************************************************
 
-  {
-    text:"fdsafsa"
-  },
+
+
+
+
   {
     text:
       "However, if you plan to write something without any choices like a linear visual novel, then you don't need to worry about `choices.js`."

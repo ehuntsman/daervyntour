@@ -1,5 +1,6 @@
 /* source https://codepen.io/Dreamdealer/pen/yEmwd */
-@import url("https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer&family=Metamorphous&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Benne&display=swap&family=Metamorphous&display=swap');
+
 #title-overlay {
   background: #eee url("../components/images/worlds.png");
   background-size: cover;
@@ -48,12 +49,12 @@
 }
 
 #menu li span {
-  font-family: 'IM Fell Great Primer', Georgia, serif;
+  font-family: 'Benne', Georgia, serif;
   font-weight: 800;
   display: block;
-  padding: 6px 0;
-  color: #ccc;
-  font-size: 40px;
+  padding: 15px 0 2px;
+  color: #222;
+  font-size: 32px;
   text-align: center;
   text-decoration: none;
   position: relative;
@@ -170,6 +171,7 @@
   top: 10vh;
   left: 20vw;
   right: 20vw;
+  text-align: center;
 }
 .title-container .home-links button {
   background: url("../components/images/bluebutton.png");

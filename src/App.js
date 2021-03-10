@@ -29,7 +29,7 @@ const INITIAL_STATE = {
   bgmVolume: 80,
   soundEffectVolume: 90,
   voiceVolume: 100,
-  font: "IM Fell Great Primer",
+  font: "Benne",
   // isFull: false,
   choicesStore: {},
   index: 0,
