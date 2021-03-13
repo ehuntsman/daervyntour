@@ -7,6 +7,7 @@ const hotsprings = require("./bg/hotsprings.jpg");
 const fpannalay = require("./bg/flightpath.jpg");
 const serpent = require("./bg/serpent.png");
 const bjorvax = require("./bg/bjorvax.png");
+const sarahsrest = require("./bg/sarahsrest.png");
 // sprites
 const val = require("./sprites/val.png");
 const bn = require("./sprites/block-neutral.png");
@@ -16,6 +17,7 @@ const vincent = require("./sprites/vincent.png");
 const akirhen = require('./sprites/akirhen.png');
 const sarah = require('./sprites/sarah.png');
 const anora = require("./sprites/anora.png");
+const demonstatue = require("./sprites/demonstatue.png");
 
 const b = "needtochange"
 
@@ -250,6 +252,8 @@ let story = [
   },
   // { text: "Here in Annalay, there is the town square, the Flower Garden, the bakery or the beach. Or we could go visit Sarah!"},
   // {text: "We could also go to the flight tower and take a serpent to anywhere in Daervyn!"},
+  { text: "Here in Annalay, there is the town square, or we could go visit Sarah!"},
+  {text: "We could also go to the flight tower and take a serpent to Bjorvax!"},
   {
     text: "So... where should we go?"
   },
@@ -492,7 +496,7 @@ let story = [
     text: "The smol kitsune leads you to the market district of the city where a sign hangs over a staircase leading down saying Sarah's Rest written in glowing Pink letters."
   },
   {
-    // bg: ----,
+    bg: sarahsrest,
     text: "Akirhen steps inside as a small bell rings with the door opening. The air is filled with the scent of a subtle perfume as magical items line various shelves."
   },
   {
@@ -500,8 +504,200 @@ let story = [
   },
   {
     speaker: "???",
-    sprite: sarah,
     text: "I will be out in a moment Darling." 
+  },
+  {
+    speaker: "",
+    text: "As you wait, you look about the shop. Three items catch your eye. Which would you look at?"
+  },
+  // *******************************************************************
+  // Pick an Item at Sarah's Rest - route index 6
+  // *******************************************************************
+  {
+    choicesExist: true,
+  },
+  // ****
+  {
+    routeBegins: "demonStatue",
+    sprite: "",
+    spriteLeft: "",
+    spriteRight: "",
+    text: "It's a small golden statue of a demon. In front of it is a sign that says 'Do not feed gold'."
+  },
+  {
+    sprite: "",
+    speaker: "",
+    spriteLeft: akirhen,
+    spriteRight: demonstatue,
+    text: "Akirhen skips up and looks at the statue, poking it.",
+    spriteLeftEffect: "shake",
+  },
+  {
+    speaker: "Akirhen",
+    text: "What about this one? I can see it's eyes glow.",
+  },
+  {
+    speaker: "",
+    text: "Upon closer inspection, the statue looks up at you."
+  },
+  {
+    speaker: "Statue",
+    text: "Hey! Spare a coin? I'm hungry here!"
+  },
+  // *******************************************************************
+  // Demon Statue at Sarah's Rest - route index 7
+  // *******************************************************************
+  {
+    choicesExist: true,
+  },
+  // ****
+  {
+    routeBegins: "giveCoin",
+    sprite: demonstatue,
+    speaker: "",
+    text: "The coin dissolves into the statue making a clinking noise as it hits other coins somewhere nearby. The statue grows a little larger."
+  },
+  {
+    text: "Woah really!? You actually did that? Not one for rules are ya?",
+    speaker: "Statue"
+  },
+  {
+    speaker: "",
+    text: "The statue chuckles."
+  },
+  {
+    text: "I like you. Say, got anymore?",
+    speaker: "Statue",
+    jumpTo: "talkWithSarah"
+  },
+  // ****
+  {
+    routeBegins: "statuesTalk",
+    sprite: demonstatue,
+    text: "The statue is quiet for a moment in silence.",
+    speaker: ""
+  },
+  {
+    text: "Eh, you caught me there...I just like taking coins from people. Well, if you aren't gonna give up you're fancy coins, then get out of here!",
+    speaker: "Statue",
+    jumpTo: "talkWithSarah"
+  },
+
+  // **** THIS IS PART OF INDEX 6 STILL
+  {
+    routeBegins: "penguinBox",
+    sprite: akirhen,
+    spriteLeft: "",
+    spriteRight: "",
+    speaker: "",
+    text: "Akirhen skips over to the box and looks inside calling you over."
+  },
+  {
+    text: "Look at the funny birds! There is no way they can fly!",
+    speaker: "Akirhen",
+  },
+  {
+    speaker: "",
+    text: "Stepping up to the box, inside are several finely carved penguins. Upon closer inspection, the scent of sea water fills the air and several of the figurines come to life as real penguins, if not very small. They walk around the box and, on occasion, slide as if on ice."
+  },
+  {
+    text: "Akirhen lets out a gasp and giggles watching then waddle around."
+  },
+  {
+    speaker: "Akirhen",
+    text: "See? I knew they couldn't fly!",
+    jumpTo: "talkWithSarah"
+  },
+  // **** THIS IS PART OF INDEX 6 STILL
+  {
+    routeBegins: "sarahDress",
+    sprite: "",
+    spriteLeft: "",
+    spriteRight: "",
+    speaker: "",
+    text: "Stepping up the dress, you notice it changes its color and shape until you fully focus on it. With a smooth motion, the dress changes to what you picture in your mind with one addition...Pockets."
+  },
+  {
+    text: "Reeling back from this magical enhancement, you spend time thinking of different designs and even some types of armor, which the dress imitates flawlessly.",
+    jumpTo: "talkwithSarah"
+  },
+  // ****
+  {
+    receiveJump: "talkWithSarah",
+    sprite: "",
+    spriteLeft: "",
+    spriteRight: "",
+    speaker: "",
+    text: "Before looking further at the item, a soft voice speaks from behind.",
+  },
+  {
+    speaker: "???",
+    text: "See something that interests you darling?",
+  },
+  {
+    speaker: "",
+    sprite: sarah,
+    text: "Turning reveals the sight a woman dressed in a silken red dress that accentuates her features. Matching well with her red eyes. She smiles at you, her horns and barbed tail hinting at her not being human."
+  },
+  {
+    speaker: "Sarah",
+    text: "You are new aren't you? A pleasure, I am Sarah and welcome to Sarah's rest. Where other lack, Sarah has the Rest. Now, what brings you here to my humble shop?"
+  },
+  // *******************************************************************
+  // Talk with Sarah - route index 8
+  // *******************************************************************
+  {
+    choicesExist: true,
+    receiveJump: "questionSarah"
+  },
+  // ****
+  {
+    routeBegins: "notHuman",
+    sprite: sarah,
+    spriteLeft: "",
+    spriteRight: "",
+    speaker: "Sarah",
+    text: "My, my, did my horns and tail give me away again? No, I am not human darling. I am actually a succubus, reformed mind you. I hope that doesn't put a damper on our business relationship."
+  },
+  {
+    text: "I just wish to collect items that interest me to tell the truth, and sell the...safer ones to others. Is there anything else you would like to know?",
+    jumpTo: "questionSarah"
+  },
+  // ****
+  {
+    routeBegins: "magicalItems",
+    sprite: sarah,
+    spriteLeft: "",
+    spriteRight: "",
+    speaker: "Sarah",
+    text: "Oh! Do you like them!?"
+  },
+  {
+    speaker: "",
+    text: "Her eyes shine as you mention the items."
+  },
+  {
+    sprite: sarah,
+    speaker: "Sarah",
+    text: "I am fascinated by magic you see and the ability to use magic within items beyond barbarish means is like art to me. I travel quite a bit you see and collect what I can. Either by trading and finding them myself. I do keep the more dangerous pieces of art to myself though.",
+    jumpTo: "questionSarah"
+  },
+  // ****
+  {
+    routeBegins: "windowShopping",
+    sprite: sarah,
+    spriteLeft: "",
+    spriteRight: "",
+    speaker: "Sarah",
+    text: "Just window shopping? Well, If anything catches your eye, besides myself, do let me know. Everything is for sale, and if you cannot immediately pay...I do have some left over contracts we can use..."
+  },
+  {
+    text: "I'm joking, of course! They don't actually let you keep them once you quit. Bad for business if any random devil is making contracts after all."
+  },
+  {
+    sprite: "",
+    speaker: "",
+    text: "You look around the shop for a while."
   },
   {
     speaker: "Akirhen",
@@ -1030,7 +1226,7 @@ let story = [
     spriteLeft: "",
     bg: sleepingphantom,
     speaker: "",
-    text: "This is the end of the tour. You may recieve one favor a week for completing this tour by messaging Kyoko."
+    text: "This is the end of the tour. You may recieve one favor a week for completing this tour by messaging Sain or Kyoko."
   },
   {
     text: "You can go through this tour as many times as you'd like without favor."

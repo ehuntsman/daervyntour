@@ -62,11 +62,11 @@ var choices = [
       //   content: "Can we go see the Flower Garden?",
       //   nextIndex: 0
       // },
-      // {
-      //   routeBegins: "annalaySarahsRest",
-      //   content: "Who's Sarah?",
-      //   nextIndex: 0
-      // },
+      {
+        routeBegins: "annalaySarahsRest",
+        content: "Who's Sarah?",
+        nextIndex: 6
+      },
       // {
       //   routeBegins: "annalayBakery",
       //   content: "The bakery sounds good.",
@@ -136,6 +136,61 @@ var choices = [
         content: "Goodbye.",
         nextIndex: 5 //goes to the end
       }
+    ]
+  },
+  {
+    // 6 Sarah's Rest Item choice
+    choices: [
+      {
+        routeBegins: "demonStatue",
+        content: "A golden statue",
+        nextIndex: 7
+      },
+      {
+        routeBegins: "penguinBox",
+        content: "A box with penguin figurines.",
+        nextIndex: 8
+      },
+      {
+        routeBegins: "sarahDress",
+        content: "A shimmering dress.",
+        nextIndex: 8
+      }
+    ]
+  },
+  {
+    // 7 Sarah's Rest Demon choice
+    choices: [
+      {
+        routeBegins: "giveCoin",
+        content: "Feed a coin",
+        nextIndex: 8
+      },
+      {
+        routeBegins: "statuesTalk",
+        content: "Can statues be hungry?",
+        nextIndex: 8
+      },
+    ]
+  },
+  {
+    // 8 Sarah's Rest Questions
+    choices: [
+      {
+        routeBegins: "notHuman",
+        content: "You're not human, are you?",
+        nextIndex: 8
+      },
+      {
+        routeBegins: "magicalItems",
+        content: "Where do you get so many magic items?",
+        nextIndex: 8
+      },
+      {
+        routeBegins: "windowShopping",
+        content: "Just window shopping",
+        nextIndex: 9
+      },
     ]
   }
 ];
