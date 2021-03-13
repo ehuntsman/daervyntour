@@ -611,11 +611,18 @@ let story = [
   // **** THIS IS PART OF INDEX 6 STILL
   {
     routeBegins: "sarahDress",
-    sprite: "",
+    sprite: akirhen,
     spriteLeft: "",
     spriteRight: "",
     speaker: "",
-    text: "Stepping up the dress, you notice it changes its color and shape until you fully focus on it. With a smooth motion, the dress changes to what you picture in your mind with one addition...Pockets."
+    text: "Akirhen skips over to the dress and points to it."
+  },
+  {
+    speaker: "Akirhen",
+    text: "Awl, I should probably get a new dress. I had a really nice one that someone gave me, but it got a little torn up.",
+  },
+  {
+    text: "Stepping up the dress, you notice it changes its color and shape until you fully focus on it. With a smooth motion, the dress changes to what you picture in your mind with one addition...Pockets.",
   },
   {
     text: "Reeling back from this magical enhancement, you spend time thinking of different designs and even some types of armor, which the dress imitates flawlessly.",
